@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tạo 3 cột */
+  grid-gap: 20px; /* Khoảng cách giữa các phần tử */
+}
+
+.product-item {
+  text-align: center;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.product-price {
+  color: #888;
+}
+

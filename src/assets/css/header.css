@@ -30,6 +30,7 @@ header{
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+    font-family: bold;
 
 }
 .text-right{
@@ -44,4 +45,5 @@ header{
 .text-right li a{
     color: red;
     font-size: 15px;
+
 }

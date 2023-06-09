@@ -1,0 +1,52 @@
+.category {
+    margin-bottom: 20px;
+}
+
+.category h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.product-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: none;
+    margin-top: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+}
+
+.product-button:hover {
+    background-color: #ccc;
+}
