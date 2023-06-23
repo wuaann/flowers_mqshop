@@ -12,8 +12,8 @@ function Home() {
         setNormalFlower([]);
         const fetchFlowers = async () => {
             try {
-                const reponse = await FlowerApi.getAll();
-                reponse.forEach((flower) => {
+                const response = await FlowerApi.getAll();
+                response.forEach((flower) => {
                     if (flower.category) {
                         setHotFlower(prevState => [...prevState, flower]);
                     } else setNormalFlower(prevState => [...prevState, flower]);
@@ -28,7 +28,7 @@ function Home() {
     }, []);
 
     return (
-        <div>
+        <div className={'container'}>
 
             <h1>HOT FLOWER</h1>
             <div className="pr_grid">

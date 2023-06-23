@@ -1,0 +1,10 @@
+.banner{
+    /*position: relative;*/
+    /*left: 10%;*/
+    /*!*transform: translateX(+50%);*!*/
+    width: 75%;
+    margin: 0 auto;
+
+
+}
+.swiper-slide { width: 80% }
