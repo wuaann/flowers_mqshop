@@ -1,4 +1,4 @@
-import '../assets/css/detail.css'
+import './detail.css'
 
 function Detail(id) {
     const productDetail = ({

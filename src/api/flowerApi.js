@@ -1,9 +1,25 @@
 // api/flowerApi.js
 import axiosClient from "./axiosClient";
+
+import authUtils from "../utils/AuthUtils";
+
+
 const flowerApi = {
-    getAll : (params) => {
+    getAll: () => {
         const url = '/flower';
-        return axiosClient.get(url, { params });
+        return axiosClient.get(url, {
+            headers: {
+                'Authorization': `Bearer ${authUtils.getToken()}`,
+            },
+        },);
+    },
+    getByID: (id) => {
+        const url = `/flower/${id}`;
+        return axiosClient.get(url, {
+            headers: {
+                'Authorization': `Bearer ${authUtils.getToken()}`,
+            },
+        });
     },
 }
 

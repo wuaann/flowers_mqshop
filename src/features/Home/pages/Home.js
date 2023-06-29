@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import '../assets/css/home.css';
-import FlowerApi from "../api/flowerApi";
+import './home.css';
+import FlowerApi from "../../../api/flowerApi";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart} from "../cartSlice";
 
 function Home() {
     const [hotFlower, setHotFlower] = useState([]);
     const [normalFlower, setNormalFlower] = useState([]);
-
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setHotFlower([]);
@@ -13,7 +15,7 @@ function Home() {
         const fetchFlowers = async () => {
             try {
                 const response = await FlowerApi.getAll();
-                response.forEach((flower) => {
+                response.data.forEach((flower) => {
                     if (flower.category) {
                         setHotFlower(prevState => [...prevState, flower]);
                     } else setNormalFlower(prevState => [...prevState, flower]);
@@ -24,9 +26,11 @@ function Home() {
             }
         }
         fetchFlowers();
-
     }, []);
-
+    console.log(useSelector(state => state.carts.cartItems))
+    const handleAddShoppingCart = (flower) => {
+        dispatch(addToCart(flower))
+    }
     return (
         <div className={'container'}>
 
@@ -35,13 +39,15 @@ function Home() {
                 {hotFlower.map((flower) => (
                     <div key={flower.id} className="pr_item">
                         <img
-                            src={flower.avatar}
+                            src={flower.img}
                             alt={flower.name}
                             className="Pr_image"
                         />
                         <p className="product-name">{flower.name}</p>
                         <p className="product-price">{flower.price}</p>
-                        <button className="button_mua">Mua</button>
+                        <button className="button_mua" onClick={()  => {
+                            handleAddShoppingCart(flower);
+                        }}>Mua</button>
                         <button className="button_detail">Chi tiết</button>
                     </div>
                 ))}
@@ -51,13 +57,13 @@ function Home() {
                 {normalFlower.map((item) => (
                     <div key={item.id} className="pr_item">
                         <img
-                            src={item.avatar}
+                            src={item.img}
                             alt={item.name}
                             className="Pr_image"
                         />
                         <p className="product-name">{item.name}</p>
                         <p className="product-price">{item.price}</p>
-                        <button className="button_mua">Mua</button>
+                        <button className="button_mua" >Mua</button>
                         <button className="button_detail">Chi tiết</button>
                     </div>
                 ))}

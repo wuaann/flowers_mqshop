@@ -1,0 +1,34 @@
+.shopping-cart{
+    top: 10%;
+    z-index: 1;
+    right: 6%;
+    cursor: pointer;
+    position: fixed;
+    height: 70px;
+    width: 70px;
+    background-color: orange;
+    border-radius: 50%;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.number{
+    bottom: 0;
+    right: 0;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.number p {
+    font-size: 15px;
+}
