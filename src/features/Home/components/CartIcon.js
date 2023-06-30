@@ -1,18 +1,30 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCartShopping} from "@fortawesome/free-solid-svg-icons";
 import './cart.css'
+import {useDispatch, useSelector} from "react-redux";
+import { useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+import {getTotals} from "../cartSlice";
 
 function CartIcon() {
-
-
-    // quantity = sessionStorage.getItem('item_cart').length
+    const navigate = useNavigate();
+    const totalQuantity = useSelector(state => state.carts.cartTotalQuantity)
+    const cart = useSelector(state => state.carts.cartItems)
+    const handleRedirect = () => {
+      navigate('/cart');
+    }
+    const dispatch = useDispatch()
+    useEffect(() =>{
+        dispatch(getTotals())
+    },[dispatch, cart])
     return (
         <>
-            <div className="shopping-cart">
+            <div onClick={handleRedirect} className="shopping-cart" >
                 <FontAwesomeIcon className={'cart'} icon={faCartShopping} />
                 <div className="number">
-                    <p>1</p>
+                    <p>{totalQuantity}</p>
                 </div>
+
             </div>
         </>
     )

@@ -20,15 +20,19 @@
     font-size: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    vertical-align:center;
+    float: initial;
     color: white;
     position: absolute;
     height: 30px;
     width: 30px;
     background-color: red;
     border-radius: 50%;
+
 }
 
 .number p {
     font-size: 15px;
+    align-items: center;
+    text-align: center;
 }

@@ -9,6 +9,8 @@ import {useSelector} from "react-redux";
 import AuthUtils from "./utils/AuthUtils";
 import {ToastContainer} from "react-toastify";
 import React from "react";
+import PaymentMethods from "./features/Home/pages/CheckoutPage";
+import Admin from "./features/Admin/Admin";
 
 function App() {
     let token = null;
@@ -26,12 +28,13 @@ function App() {
                     {
                         token ?
                             <>
-
                                 <Route path="/" element={<Layout/>}>
                                     <Route index element={<Home/>}/>
                                     <Route path={'/detail'} element={<Detail/>}/>
                                     <Route path={'*'} element={<Home/>}/>
                                 </Route>
+                                <Route path={'/cart'} element={<PaymentMethods/>}/>
+                                <Route path={'/admin'} element={<Admin/>}/>
                             </>
                             :
                             <>
